@@ -1,0 +1,18 @@
+{
+  "name": "javifmz/webapp-vfs-api",
+  "description": "Webapp VFS API (back-end)",
+  "version": "0.1.0",
+  
+  "require": {
+    "slim/slim": "^4.3",
+    "slim/psr7": "^0.6.0",
+    "illuminate/database": "^6.4",
+    "php-di/php-di": "^6.0",
+    "respect/validation": "^1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src"            
+    }
+  }
+} 

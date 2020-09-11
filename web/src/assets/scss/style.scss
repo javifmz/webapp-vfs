@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+$color-primary: #999;
+
+$top-menu-background: $color-primary;
+$top-menu-height: 50px;
+$top-menu-margin-bottom: 25px;
+
+$login-form-width: 450px;
+
+// GENERAL
+
+* {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+}
+
+.ui.form input[type=text] {
+  font-family: 'Nunito', sans-serif;
+}
+
+.ui.button {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+}
+
+// Top menu
+
+nav#top-menu {
+  background-color: $top-menu-background;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  .item {
+    height: $top-menu-height;
+    &.active { background-color: hsla(0, 0%, 100%, .15); }
+    &.header { text-transform: uppercase; }
+  }
+}
+
+// Main content
+
+main {
+  padding-top: $top-menu-height + $top-menu-margin-bottom;
+}
+
+// Login form
+
+.login {
+  margin: 0px auto;
+  max-width: $login-form-width;
+  > .ui.form {
+    button {
+      background-color: $color-primary;
+      color: white;
+      &:hover {
+        background-color: darken($color-primary, 5%);
+      }
+    }
+    .ui.error.message {
+      display: block;
+    }
+  }
+  > a { 
+    display: block;
+    margin-top: 20px; 
+  }
+}
+
