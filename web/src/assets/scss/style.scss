@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
 
-$color-primary: #999;
+// Variables
+
+$color-primary: #0F4C81;
 
 $top-menu-background: $color-primary;
 $top-menu-height: 50px;
@@ -8,19 +9,24 @@ $top-menu-margin-bottom: 25px;
 
 $login-form-width: 450px;
 
+// Imports
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import 'tablist.scss';
+
 // GENERAL
 
-* {
-  font-family: 'Nunito', sans-serif;
+body {
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
 
 .ui.form input[type=text] {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .ui.button {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 800;
 }
 
@@ -65,3 +71,38 @@ main {
   }
 }
 
+// Breadcrumb
+
+.ui.breadcrumb {
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  display: block;
+  padding-bottom: 10px;
+  .active.section { font-weight: bold; }
+  + * { margin-top: 20px; }
+  + .ui.header { margin-top: 0px; }
+  + .ui.secondary.pointing.menu { margin-top: 10px; }
+  a { color: $color-primary; }
+  a:hover { color: darken($color-primary, 5%); }
+}
+
+// Button
+
+.ui.button {
+  white-space: nowrap;
+}
+
+// Dropdown
+
+.ui.dropdown {
+  .text, .item {
+    i { color: #aaa; }
+  }
+}
+
+.ui.actions {
+  float: right;
+}
+
+.light-grey.icon {
+  color: #ccc;
+}

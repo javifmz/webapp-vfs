@@ -16,14 +16,14 @@ $database_config = [
 
 if(getenv('ADMIN_INIT')) {
   $admin = [
-    'email' => getenv('ADMIN_EMAIL')       ?: 'admin@example.com',
-    'username' => getenv('ADMIN_USERNAME') ?: 'admin',
-    'password' => getenv('ADMIN_PASSWORD') ?: 'admin'
+    'email' =>    getenv('ADMIN_EMAIL')    ?: 'admin@example.com',
+    'password' => getenv('ADMIN_PASSWORD') ?: 'admin',
+    'name' =>     getenv('ADMIN_NAME')     ?: 'Webapp',
+    'surname' =>  getenv('ADMIN_SURNAME')  ?: 'Admin'
   ];
-  error_log(json_encode($admin));
 }
 
-$max_tries = 10;
+$max_tries = 20;
 $connection_fail = true;
 do {
   try {
@@ -54,10 +54,10 @@ if($admin) {
   $password = password_hash($admin['password'], PASSWORD_DEFAULT);
   $result = $pdo->query('SELECT id FROM user WHERE id = 1 LIMIT 1;');
   if(!$result->fetch()) {
-    $pdo->query('INSERT INTO user (id, email, username, password) VALUES (1, "' . $admin['email'] . '", "' . $admin['username'] . '", "' . $password . '");');
+    $pdo->query('INSERT INTO user (id, email, password, name, surname, admin, status) VALUES (1, "' . $admin['email'] . '", "' . $password . '", "' . $admin['name'] . '", "' . $admin['surname'] . '", TRUE, 1);');
     error_log('Database admin user initialised successfully');
   } else {
-    $pdo->query('UPDATE user SET email = "' . $admin['email'] . '", username = "' . $admin['username'] . '", password = "' . $password . '" WHERE id = 1;');
+    $pdo->query('UPDATE user SET email = "' . $admin['email'] . '", password = "' . $password . '", name = "' . $admin['name'] . '", surname = "' . $admin['surname'] . '", admin = TRUE, status = 1 WHERE id = 1;');
     error_log('Database admin user updated successfully');
   }
 }

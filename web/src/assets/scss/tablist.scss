@@ -1,0 +1,37 @@
+
+ul.ui.tablist {
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  border-radius: 0.28571429rem;
+  margin: 1rem 0px;
+  padding: 0px;
+  > li {
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    display: flex;
+    margin: 0px;
+    line-height: 26px;
+    &:first-child { border-top: none; }
+    &.header, &.footer {
+      color: #444;
+      > .column > i { color: #888; }
+    }
+  }
+  .column {
+    flex: 1 1 auto;
+    white-space: nowrap;
+    padding: 8px 10px;
+    &:last-child { text-align: right; }
+    > i {
+      margin-right: 10px;
+      color: #aaa;
+    }
+    &.ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  a.action {
+    cursor: pointer;
+    margin-left: 3px;
+    &.disabled { cursor: default; }
+  }
+}

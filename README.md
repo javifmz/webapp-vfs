@@ -1,9 +1,10 @@
 # Webapp VFS
 
-A full-stack dockerized boilerplate to create webapps. Current version is `0.1.0`.
+A full-stack dockerized boilerplate to create webapps. Current version is `0.2.0`.
 
 ## Features
 - User login/logout
+- User administration
 
 ## Technologies
 

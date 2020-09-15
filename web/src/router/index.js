@@ -32,14 +32,6 @@ router.beforeEach((to, from, next) => {
       return;
     }
   }
-  // Manager
-  if ( to.matched.some(record => record.meta.onlyManager) ) {
-    let user = store.getters.getUser;
-    if ( !user || !user.teamRole === 2 ) {
-      next('/login');
-      return;
-    }
-  }
   // Modal close
   if ( ModalService.isOpen() ) {
     ModalService.hide();
